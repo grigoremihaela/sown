@@ -9,7 +9,7 @@ class App extends Component {
     this.state ={status: false};
   }
   timer() {
-    fetch('http://raspberrypi:3002/status')
+    fetch('http://192.168.0.186:3002/status')
     .then(function(response) { 
       // Convert to JSON
       console.log(response);
@@ -21,14 +21,14 @@ class App extends Component {
     });
   }
   componentDidMount() {
-    this.intervalId = setInterval(this.timer.bind(this), 1);
+    this.intervalId = setInterval(this.timer.bind(this), 1000);
   }
   componentWillUnmount(){
     clearInterval(this.intervalId);
   }
   render() {
     var statusObj = Object.assign({}, this.state.status);
-    console.log(statusObj);
+    console.log(statusObj.status);
     return (
       <div className="App">
         <header className="App-header">
@@ -38,9 +38,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        {Object.keys(statusObj).map((index) => (
-          <div>{statusObj[index].status}</div>
-        ))}
+        <div>{statusObj.status}</div>
       </div>
     );
   }
