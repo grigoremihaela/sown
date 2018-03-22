@@ -4,12 +4,11 @@ import './App.css';
 
 class App extends Component {
 
-  constructor(){
-    super();
-    this.state ={status: {}};
+  constructor(props){
+    super(props);
+    this.state ={status: false};
   }
-
-  componentDidMount() {
+  timer() {
     fetch('http://raspberrypi:3002/status')
     .then(function(response) { 
       // Convert to JSON
@@ -21,10 +20,15 @@ class App extends Component {
       console.log(status);
     });
   }
-
+  componentDidMount() {
+    this.intervalId = setInterval(this.timer.bind(this), 1);
+  }
+  componentWillUnmount(){
+    clearInterval(this.intervalId);
+  }
   render() {
     var statusObj = Object.assign({}, this.state.status);
-
+    console.log(statusObj);
     return (
       <div className="App">
         <header className="App-header">
