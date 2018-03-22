@@ -48,6 +48,6 @@ app.post('/led/off', function(req, res){
     });
 });
 */
-app.listen(3001, function () {
-  console.log('Simple LED Control Server Started on Port: 3001!')
+app.listen(3002, function () {
+  console.log('Simple LED Control Server Started on Port: 3002!')
 });
