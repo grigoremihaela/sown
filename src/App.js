@@ -37,7 +37,6 @@ class App extends Component {
         {Object.keys(nameObj).map((index) => (
           <div>{status[index].status}</div>
         ))}
-        <div>{this.state.status}</div>
       </div>
     );
   }
