@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   render() {
-    var status = Object.assign({}, this.state.status);
+    var statusObj = Object.assign({}, this.state.status);
 
     return (
       <div className="App">
@@ -34,7 +34,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        {Object.keys(nameObj).map((index) => (
+        {Object.keys(statusObj).map((index) => (
           <div>{status[index].status}</div>
         ))}
       </div>
