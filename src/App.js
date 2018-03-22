@@ -10,7 +10,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://raspberrypi:3000/status')
+    fetch('http://raspberrypi:3002/status')
     .then(function(response) { 
       // Convert to JSON
       console.log(response);
