@@ -35,7 +35,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         {Object.keys(statusObj).map((index) => (
-          <div>{status[index].status}</div>
+          <div>{statusObj[index].status}</div>
         ))}
       </div>
     );
