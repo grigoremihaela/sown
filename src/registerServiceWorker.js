@@ -9,7 +9,6 @@
 // This link also includes instructions on opting out of this behavior.
 
 const isLocalhost = Boolean(
-  window.location.hostname === 'raspberrypi' ||
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
     window.location.hostname === '[::1]' ||
