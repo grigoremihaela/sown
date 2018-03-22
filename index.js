@@ -23,7 +23,7 @@ gpio.on('change', function(channel, value) {
     if (err) throw err;
     //console.log('Written ' + value + ' to pin 11');
   });
-  app.get('/status', function(req, res, next) => {    
+  app.get('/status', function(req, res, next){    
     res.json({
       status: value
     });
