@@ -32,10 +32,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/led', function(req, res){ 
-  res.render('index',{status:"Press Button To change Status of Led !!"});
-});
-
 gpio.on('change', function(channel, value) {
   console.log('Channel ' + channel + ' value is now ' + value);
   gpio.write(11, value, function(err) {
@@ -50,6 +46,10 @@ app.get('/status', function(req, res, next){
   res.json({
     status: count
   });
+});
+/*
+app.get('/led', function(req, res){ 
+  res.render('index',{status:"Press Button To change Status of Led !!"});
 });
 
 app.post('/led/on', function(req, res){
@@ -69,7 +69,7 @@ app.post('/led/off', function(req, res){
   return res.render('index',{status: "Ohh!! Led is Off"});
     });
 });
-
+*/
 app.listen(3000, function () {
   console.log('Simple LED Control Server Started on Port: 3000!')
 });
