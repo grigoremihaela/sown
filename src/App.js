@@ -9,7 +9,7 @@ class App extends Component {
     this.state ={status: false};
   }
   timer() {
-    fetch('http://192.168.0.186:3002/status')
+    fetch('http://raspberrypi:3002/status')
     .then(function(response) { 
       // Convert to JSON
       console.log(response);
