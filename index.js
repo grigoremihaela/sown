@@ -32,7 +32,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/', function(req, res){ 
+app.get('/led', function(req, res){ 
   res.render('index',{status:"Press Button To change Status of Led !!"});
 });
 
@@ -70,8 +70,8 @@ app.post('/led/off', function(req, res){
     });
 });
 
-app.listen(3002, function () {
-  console.log('Simple LED Control Server Started on Port: 3002!')
+app.listen(3000, function () {
+  console.log('Simple LED Control Server Started on Port: 3000!')
 });
 
 
