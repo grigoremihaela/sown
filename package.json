@@ -16,7 +16,7 @@
     "eject": "react-scripts eject"
   },
   "engines": {
-    "node": "8.10.0",
+    "node": ">=8.9.4",
     "npm": ">=5.6.0"
   },
   "homepage": "http://raspberrypi:3000/",
