@@ -1,6 +1,7 @@
 var express = require('express'); 
 var app = express();
 
+/*
 var Gpio = require('pigpio').Gpio,
   led = new Gpio(17, {mode: Gpio.OUTPUT}),
   dutyCycle = 0;
@@ -13,6 +14,20 @@ setInterval(function () {
     dutyCycle = 0;
   }
 }, 20);
+*/
+
+var Gpio = require('pigpio').Gpio,
+  button = new Gpio(4, {
+    mode: Gpio.INPUT,
+    pullUpDown: Gpio.PUD_DOWN,
+    edge: Gpio.EITHER_EDGE
+  }),
+  led = new Gpio(17, {mode: Gpio.OUTPUT});
+
+button.on('interrupt', function (level) {
+  led.digitalWrite(level);
+  console.lod(level);
+});
 
 /*
 var gpio = require('rpi-gpio');
