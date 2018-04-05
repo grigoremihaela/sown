@@ -2,12 +2,12 @@ var express = require('express');
 var app = express();
 
 var Gpio = require('pigpio').Gpio,
-  led = new Gpio(17, {mode: Gpio.OUTPUT}),
-  dutyCycle = 0;
+    led = new Gpio(17, {mode: Gpio.OUTPUT}),
+    dutyCycle = 0;
 
 setInterval(function () {
   led.pwmWrite(dutyCycle);
-  console.log('led change')
+  console.log('led change' + dutyCycle)
   dutyCycle += 5;
   if (dutyCycle > 255) {
     dutyCycle = 0;
