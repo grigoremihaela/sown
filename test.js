@@ -12,7 +12,7 @@ setInterval(function () {
   if (dutyCycle > 255) {
     dutyCycle = 0;
   }
-}, 1);
+}, 50);
 
 /*
 var Gpio = require('pigpio').Gpio,
