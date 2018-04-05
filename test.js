@@ -1,7 +1,9 @@
-var ee = new process.EventEmitter(),
-    buttonState;
+var express = require('express'); 
+var app = express();
+var gpio = require('rpi-gpio');
+var buttonState;
 
-ee.on('stateChange', function(previousValue, value){
+app.on('stateChange', function(previousValue, value){
   console.log('button state changed from', previousValue, 'to', value);
 });
 
@@ -13,7 +15,7 @@ setInterval(function(){
       if(buttonState !== value){
         var previousState = buttonState;
         buttonState = value;
-        ee.emit('stateChange', previousState, value);
+        app.emit('stateChange', previousState, value);
       }
     }        
   });
