@@ -12,7 +12,7 @@ app.on('stateChange', function(previousValue, value){
 setInterval(function(){
   gpio.read(16, function(err, value) {
     if(err){
-      ee.emit('error', err);
+      app.emit('error', err);
     } else{
       if(buttonState !== value){
         var previousState = buttonState;
