@@ -1,21 +1,18 @@
 var express = require('express'); 
 var app = express();
 
+var Gpio = require('pigpio').Gpio,
+  led = new Gpio(17, {mode: Gpio.OUTPUT}),
+  dutyCycle = 0;
 
-'use strict';
-
-var Gpio = require('Gpio'),
-  gpio,
-  gpioNo;
-
-for (gpioNo = Gpio.MIN_GPIO; gpioNo <= Gpio.MAX_GPIO; gpioNo += 1) {
-  gpio = new Gpio(gpioNo);
-
-  console.log('GPIO ' + gpioNo + ':' +
-    ' mode=' + gpio.getMode() +
-    ' level=' + gpio.digitalRead()
-  );
-}
+setInterval(function () {
+  led.pwmWrite(dutyCycle);
+  console.log('led change')
+  dutyCycle += 5;
+  if (dutyCycle > 255) {
+    dutyCycle = 0;
+  }
+}, 20);
 
 /*
 var gpio = require('rpi-gpio');
