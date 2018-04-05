@@ -3,6 +3,8 @@ var app = express();
 var gpio = require('rpi-gpio');
 var buttonState;
 
+gpio.setup(16, gpio.DIR_OUT);
+
 app.on('stateChange', function(previousValue, value){
   console.log('button state changed from', previousValue, 'to', value);
 });
